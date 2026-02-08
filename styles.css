@@ -21,6 +21,7 @@
 .color p {
   font-size: xx-large;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .buttons-container {
@@ -41,7 +42,6 @@ i{
   gap: 8px;
   cursor: pointer;
   transition: transform 0.5s;
-  /* color: rgb(103, 63, 63); */
 }
 
 .rotate{
@@ -51,4 +51,49 @@ i{
 @keyframes rotateAnim {
   from {transform: rotate(0deg);}
   to {transform: rotate(360deg);}
+}
+
+.copy-container {
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  background: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s ease-in-out;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.copy-popup {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  min-width: 30%;
+  height: 30%;
+  border-radius: 2rem;
+  transition: transform 0.5s ease;
+  transform: translateY(-2rem);
+}
+
+.copy-popup h4{
+  font-size: 2rem;
+  padding: 2rem;
+}
+
+.copy-container.active {
+  opacity: 1;
+}
+
+.copy-popup.active {
+  transform: translateY(0rem);
+}
+
+.lock-icon{
+  cursor: pointer;
 }

@@ -1,6 +1,6 @@
 const generateBtn = document.getElementById("generate-btn");
 const colors = document.getElementsByClassName("color");
-
+const popup = document.querySelector(".copy-container")
 // console.log(colors)
 // console.log(Math.floor(Math.random() * 256))
 
@@ -77,4 +77,27 @@ for (const color of colors) {
 
     })
   }
+
+  const p = color.querySelector('p');
+  p.addEventListener('click', () => {
+    copyToClipboard(p);
+  })
 }
+
+function copyToClipboard(hex) {
+  const elem = document.createElement("textarea");
+  elem.value = hex.innerText;
+  document.body.appendChild(elem);
+  elem.select();
+  document.execCommand("copy");
+  document.body.removeChild(elem);
+  const popupBox = popup.children[0];
+  popup.classList.add("active");
+  popupBox.classList.add("active");
+}
+
+popup.addEventListener("transitionend", () => {
+  const popupBox = popup.children[0];
+  popup.classList.remove("active");
+  popupBox.classList.remove("active");
+})
