@@ -8,6 +8,15 @@ function rgbToHex(r, g, b) {
   return '#' + [r, g, b].map(value => value.toString(16).padStart(2, '0')).join('');
 }
 
+function checkTextContrast(color, htmlElement){
+  const luminance = chroma(color).luminance();
+  if (luminance > 0.5){
+    htmlElement.style.color = "black"
+  } else {
+    htmlElement.style.color = "white"
+  }
+}
+
 // Generates a random color for each column and adds the hex color code to the p of the column
 function generateColors() {
   for (const color of colors) {
@@ -26,6 +35,10 @@ function generateColors() {
 
     const p = color.querySelector('p');
     p.textContent = hexString
+    checkTextContrast(rgbString, p);
+
+    const lockSpan = color.querySelector(".lock-icon");
+    checkTextContrast(rgbString, lockSpan);
   }
 
   generateBtn.classList.add('rotate'); //start rotation
