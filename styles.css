@@ -41,6 +41,7 @@ i{
   gap: 8px;
   cursor: pointer;
   transition: transform 0.5s;
+  /* color: rgb(103, 63, 63); */
 }
 
 .rotate{
