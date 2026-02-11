@@ -100,4 +100,53 @@ popup.addEventListener("transitionend", () => {
   const popupBox = popup.children[0];
   popup.classList.remove("active");
   popupBox.classList.remove("active");
-})
+});
+
+// Get all modal and button elements
+const saveBtn = document.querySelector('.save-btn');
+const saveContainer = document.querySelector(".save-container");
+const closeSave = document.querySelector(".close-save");
+const submitSave = document.querySelector(".submit-save");
+const saveName = document.querySelector(".save-name");
+
+function openPalette(){
+  const popup = saveContainer.children[0];
+  saveContainer.classList.add("active");
+  popup.classList.add("active");
+}
+
+function closePalette(){
+  const popup = saveContainer.children[0];
+  saveContainer.classList.remove("active");
+  popup.classList.remove("active");
+}
+
+const savedPalettes = []
+
+// Save the current colors as a new pallete and render it in the library
+function savePalette(){
+  // Hide the save modal
+  saveContainer.classList.remove("active");
+  popup.classList.remove("acitve");
+  //Get the palette name from the input
+  const name = saveName.value;
+  const hexColors = [];
+  // Get all current hex codes from the color divs
+  const currentHexes = document.querySelectorAll(".color p");
+  currentHexes.forEach(hex => {
+    hexColors.push(hex.innerText);
+  });
+
+  // Create a palette object
+  const paletteObj = {name: name, colors: hexColors}
+  // Add to savedPalettes array
+  savedPalettes.push(paletteObj);
+  //save to localStorage
+  localStorage.setItem("palettes", JSON.stringify(savedPalettes));
+  // Clear the input
+  saveName.value = "";
+}
+
+saveBtn.addEventListener("click", openPalette);
+closeSave.addEventListener("click", closePalette);
+submitSave.addEventListener("click", savePalette)

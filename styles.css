@@ -53,7 +53,8 @@ i{
   to {transform: rotate(360deg);}
 }
 
-.copy-container {
+.copy-container,
+.save-container {
   position: fixed;
   top: 0%;
   left: 0%;
@@ -68,7 +69,8 @@ i{
   opacity: 0;
 }
 
-.copy-popup {
+.copy-popup,
+.save-popup {
   background-color: white;
   display: flex;
   flex-direction: column;
@@ -81,17 +83,35 @@ i{
   transform: translateY(-2rem);
 }
 
-.copy-popup h4{
+.copy-popup h4,
+.save-popup h4{
   font-size: 2rem;
   padding: 2rem;
 }
 
-.copy-container.active {
+.copy-container.active,
+.save-container.active {
   opacity: 1;
 }
 
-.copy-popup.active {
+.copy-popup.active,
+.save-popup.active {
   transform: translateY(0rem);
+  pointer-events: all;
+}
+
+.save-name {
+  font-size: 1.5rem;
+  padding: 1rem;
+}
+
+.submit-save {
+  background-color: rgb(43, 43, 93);
+  color: white;
+  border: none;
+  padding: 1rem 3rem;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
 .lock-icon{

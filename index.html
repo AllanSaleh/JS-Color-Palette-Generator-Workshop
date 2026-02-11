@@ -13,7 +13,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
     rel="stylesheet">
-    <script src="https://kit.fontawesome.com/4032d748f7.js" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/4032d748f7.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -41,14 +41,30 @@
   </div>
   <div class="buttons-container">
     <div class="ctrl-btn-container">
+      <i class="fa-solid fa-inbox"></i>
+      <p>Library</p>
+    </div>
+    <div class="ctrl-btn-container">
       <i class="fa-solid fa-arrows-rotate" id="generate-btn"></i>
       <p>Generate</p>
+    </div>
+    <div class="ctrl-btn-container">
+      <i class="fa-solid fa-floppy-disk save-btn"></i>
+      <p>Save</p>
     </div>
   </div>
   <div class="copy-container">
     <div class="copy-popup">
       <h4>Copied to clipboard!</h4>
       <h4>&#128077;</h4>
+    </div>
+  </div>
+  <div class="save-container">
+    <div class="save-popup">
+      <i class="fa-solid fa-x close-save"></i>
+      <h4>Give a name to your palette!</h4>
+      <input type="text" class="save-name">
+      <button type="submit" class="submit-save">Save</button>
     </div>
   </div>
 </body>
